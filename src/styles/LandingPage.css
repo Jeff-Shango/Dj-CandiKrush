@@ -1,0 +1,82 @@
+.landing-page {
+    background: var(--primary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .event-slider {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .slide {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .slide.active {
+    opacity: 1;
+  }
+  
+  .event-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  
+  .event-info {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+  }
+  
+  .slider-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+  }
+  
+  .slider-indicators span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid var(--accent-color);
+    background: transparent;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+  
+  .slider-indicators .active {
+    background: var(--accent-color);
+  }
+  
+  /* Bio Section */
+  .bio-section {
+    margin-top: 20px;
+    padding: 10px;
+  }
+  
+  .see-more {
+    color: var(--highlight-color);
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  /* Music Player */
+  .music-player {
+    margin-top: 20px;
+    padding: 10px;
+  }
+  
