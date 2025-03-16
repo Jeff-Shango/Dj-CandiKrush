@@ -1,0 +1,48 @@
+.event-showcase {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .upcoming-list, .past-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .event-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .event-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .past-events-section {
+    margin-top: 20px;
+  }
+  
+  .toggle-past-events {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .past-list {
+    margin-top: 10px;
+  }
+  
+  .past .event-item {
+    opacity: 0.7;
+  }
+  
+  

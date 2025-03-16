@@ -43,3 +43,68 @@
     transform: rotate(360deg);
   }
 }
+
+/* Footer Container */
+.site-footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.social-links a {
+  color: var(--accent-color);
+  transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.2);
+}
+
+/* Contact Section */
+.contact-section {
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.contact-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-section input,
+.contact-section textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #444;
+  background-color: var(--primary-color);
+  color: var(--accent-color);
+}
+
+.contact-section button {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.contact-section button:hover {
+  background-color: var(--highlight-color);
+}
+
+/* Footer Text */
+.site-footer p {
+  margin-top: 20px;
+  opacity: 0.8;
+}

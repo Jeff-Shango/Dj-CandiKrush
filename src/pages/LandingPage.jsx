@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import sanityClient from "../sanityClient"; // Import Sanity client
+import emailjs from "emailjs-com"; // EmailJS for contact form
+import { Link } from "react-router-dom"; // Navigation for events page
 import "../styles/LandingPage.css"; // Ensure CSS is linked
+import { FaInstagram, FaMixcloud } from "react-icons/fa"; // Social media icons
 
 const LandingPage = () => {
   const [events, setEvents] = useState([]);
@@ -27,6 +30,29 @@ const LandingPage = () => {
     }
   }, [events]); // Runs when `events` is updated
 
+  // Handle form submission with EmailJS
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "YOUR_SERVICE_ID", 
+      "YOUR_TEMPLATE_ID",
+      e.target, 
+      "YOUR_USER_ID"
+    ).then(
+      (result) => {
+        console.log("Email sent successfully:", result.text);
+        alert("Message sent successfully!");
+      },
+      (error) => {
+        console.error("Email send error:", error.text);
+        alert("Failed to send message. Please try again.");
+      }
+    );
+
+    e.target.reset();
+  };
+
   return (
     <div className="landing-page">
       {/* Event Slider */}
@@ -40,6 +66,13 @@ const LandingPage = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* View All Events Button */}
+      <div className="view-events">
+        <Link to="/events">
+          <button className="view-events-btn">View All Events</button>
+        </Link>
       </div>
 
       {/* Bio Section */}
