@@ -79,7 +79,7 @@ const LandingPage = () => {
       <div className="bio-section">
         <h2>About the DJ</h2>
         <p>
-          This DJ brings an electrifying energy to every set, blending genres seamlessly.
+          She be Djing a whole lot...The bio goes here, mane... Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis itaque molestiae voluptates corrupti quisquam quae accusamus eos commodi quaerat tempore..
           <span className="see-more" onClick={() => alert("Expand or link to bio page")}> See more...</span>
         </p>
       </div>
