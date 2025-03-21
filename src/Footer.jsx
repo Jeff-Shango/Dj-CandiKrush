@@ -41,12 +41,26 @@ const Footer = () => {
       <div className="contact-section">
         <h2>Contact</h2>
         <form onSubmit={sendEmail}>
-          <input type="text" name="title" placeholder="Subject" required />  
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Your Email" required />
-          <textarea name="message" placeholder="Your Message" required></textarea>
-          <button type="submit">Send</button>
-        </form>
+  <div className="form-group">
+    <input type="text" name="title" id="title" required placeholder=" " />
+    <label htmlFor="title">Subject</label>
+  </div>
+  <div className="form-group">
+    <input type="text" name="name" id="name" required placeholder=" " />
+    <label htmlFor="name">Your Name</label>
+  </div>
+  <div className="form-group">
+    <input type="email" name="email" id="email" required placeholder=" " />
+    <label htmlFor="email">Your Email</label>
+  </div>
+  <div className="form-group">
+    <textarea name="message" id="message" required placeholder=" "></textarea>
+    <label htmlFor="message">Your Message</label>
+  </div>
+  <button type="submit">Send</button>
+</form>
+
+
       </div>
 
       {/* Footer Text */}

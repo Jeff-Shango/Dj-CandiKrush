@@ -1,26 +1,22 @@
 import React, { useState, useEffect } from "react";
-import sanityClient from "../sanityClient"; // Import Sanity client
-import emailjs from "emailjs-com"; // EmailJS for contact form
-import { Link } from "react-router-dom"; // Navigation for events page
-import "../styles/LandingPage.css"; // Ensure CSS is linked
-import { FaInstagram, FaMixcloud } from "react-icons/fa"; // Social media icons
+import sanityClient from "../sanityClient";
+import emailjs from "emailjs-com";
+import { useNavigate } from "react-router-dom";
+import "../styles/LandingPage.css";
 
 const LandingPage = () => {
   const [events, setEvents] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showFullBio, setShowFullBio] = useState(false);
+  const navigate = useNavigate();
 
-  // Fetch events from Sanity
   useEffect(() => {
     sanityClient
       .fetch(`*[_type == "event"]{ title, date, "image": image.asset->url }`)
-      .then((data) => {
-        console.log("Fetched Events:", JSON.stringify(data, null, 2)); 
-        setEvents(data);
-      })
+      .then((data) => setEvents(data))
       .catch((error) => console.error("Sanity Fetch Error:", error));
   }, []);
 
-  // Auto-cycle events every 5 seconds
   useEffect(() => {
     if (events.length > 1) {
       const interval = setInterval(() => {
@@ -28,73 +24,103 @@ const LandingPage = () => {
       }, 5000);
       return () => clearInterval(interval);
     }
-  }, [events]); // Runs when `events` is updated
+  }, [events]);
 
-  // Handle form submission with EmailJS
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs.sendForm(
-      "YOUR_SERVICE_ID", 
-      "YOUR_TEMPLATE_ID",
-      e.target, 
-      "YOUR_USER_ID"
-    ).then(
-      (result) => {
-        console.log("Email sent successfully:", result.text);
-        alert("Message sent successfully!");
-      },
-      (error) => {
-        console.error("Email send error:", error.text);
-        alert("Failed to send message. Please try again.");
-      }
-    );
-
-    e.target.reset();
+  const handleImageClick = () => {
+    navigate("/events");
   };
 
   return (
-    <div className="landing-page">
-      {/* Event Slider */}
-      <div className="event-slider">
-        {events.map((event, index) => (
-          <div key={index} className={`slide ${index === currentIndex ? "active" : ""}`}>
-            <img src={event.image} alt={event.title} className="event-image" />
-            <div className="event-info">
-              <h2>{event.title}</h2>
-              <p>{event.date}</p>
+    <>
+      <div className="landing-page">
+        {/* Event Slider */}
+        <div className="event-slider">
+          {events.map((event, index) => (
+            <div
+              key={index}
+              className={`slide ${index === currentIndex ? "active" : ""}`}
+            >
+              <img
+                src={event.image}
+                alt={event.title}
+                className="event-image"
+                onClick={handleImageClick}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Bio Section - Full (Desktop) */}
+        <div className="bio-section full-bio-desktop">
+          <p className="bio-title">DJ CANDIKRUSH</p>
+          <p>
+            DJ Candikrush began her career at the tender age of 12, being
+            inspired and trained by legends like Grand Wizard Theodore and DJ
+            Jimmyphingaz of Washington DC and New York.
+          </p>
+          <p>
+            Candace has been an established DJ for decades — opening for Kurtis
+            Blow, touring with the No Profanity Tours, DJing for Adidas, and
+            appearing on radio stations both locally and internationally.
+          </p>
+          <p>
+            She is seasoned in many genres of the music industry — from House
+            music to Hip-Hop, Underground Jazz, Fusion Rock, and Pop.
+          </p>
+        </div>
+
+        {/* Bio Section - Compact with "See more…" (Mobile/Tablet) */}
+        <div className="bio-section short-bio-mobile">
+          <p className="bio-title">DJ CANDIKRUSH</p>
+          <p>
+            DJ Candikrush began her career at the tender age of 12...
+            <span className="see-more" onClick={() => setShowFullBio(true)}>
+              {" "}
+              See more...
+            </span>
+          </p>
+        </div>
+
+        {/* Fullscreen Modal */}
+        {showFullBio && (
+          <div className="full-bio-overlay">
+            <div className="full-bio-content">
+              <button
+                className="close-btn"
+                onClick={() => setShowFullBio(false)}
+              >
+                ✕
+              </button>
+              <h2>Full Bio</h2>
+              <p>
+                DJ Candikrush began her career at the tender age of 12 being
+                inspired and trained by legends like Grand Wizard Theodore and
+                DJ Jimmyphingaz of Washington DC and New York. Candace has been
+                an Established DJ for decades. She was the opening DJ for Kurtis
+                Blow, part of the No Profanity Tours alongside pioneers of
+                Hip-Hop, DJed for Adidas, and appeared on radio stations both
+                local and abroad. She is seasoned in many genres of the music
+                industry — House, Hip-Hop, Underground Jazz, Fusion Rock, and
+                Pop — covering all musical tastes.
+              </p>
             </div>
           </div>
-        ))}
+        )}
       </div>
 
-      {/* View All Events Button */}
-      <div className="view-events">
-        <Link to="/events">
-          <button className="view-events-btn">View All Events</button>
-        </Link>
-      </div>
+      {/* Floating Music Player */}
+      <div className="floating-player">
+      <iframe
+  title="MixCloud"
+  width="100%"
+  height="60"
+  src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2FDjCandikrush%2F"
+  frameBorder="0"
+  allow="autoplay"
+></iframe>
 
-      {/* Bio Section */}
-      <div className="bio-section">
-        <h2>About the DJ</h2>
-        <p>
-          She be Djing a whole lot...The bio goes here, mane... Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis itaque molestiae voluptates corrupti quisquam quae accusamus eos commodi quaerat tempore..
-          <span className="see-more" onClick={() => alert("Expand or link to bio page")}> See more...</span>
-        </p>
       </div>
-
-      {/* Music Player */}
-      <div className="mixcloud-player">
-        <iframe
-          title="MixCloud"
-          width="100%"
-          height="60"
-          src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2FDjCandikrush%2F"
-          frameBorder="0"
-        ></iframe>
-      </div>
-    </div>
+    </>
   );
 };
 

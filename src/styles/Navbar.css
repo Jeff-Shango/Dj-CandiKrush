@@ -1,26 +1,24 @@
 /* 🏠 Navbar Styling */
-/* 🏠 Default Navbar */
 .navbar {
-    width: 100%;
-    padding: 16px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 50;
-    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  }
-  
-  /* 🌟 Solid Navbar when at the top */
-  .navbar {
-    background: black;
-    box-shadow: none;
-  }
-  
-  /* 🌠 Semi-Transparent Navbar when scrolling */
-  .navbar.scrolled {
-    background: rgba(0, 0, 0, 0.85);
-    box-shadow: 0px 4px 10px rgba(255, 0, 127, 0.5);
-  }
+  width: 100%;
+  padding: 16px;
+  position: relative; /* ← Start as relative (not fixed) */
+  top: 0;
+  left: 0;
+  z-index: 50;
+  background: black;
+  box-shadow: none;
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* 🌠 When user scrolls, it becomes fixed with a subtle overlay */
+.navbar.scrolled {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: 0px 4px 10px rgba(255, 0, 127, 0.5);
+  backdrop-filter: blur(6px); /* optional: nice touch */
+}
+
   
   
   /* 🔹 Navbar Container */

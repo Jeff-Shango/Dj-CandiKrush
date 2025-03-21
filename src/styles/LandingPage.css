@@ -1,82 +1,194 @@
 .landing-page {
-    background: var(--primary-color);
-    color: var(--text-color);
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .event-slider {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .slide {
-    position: absolute;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-  }
-  
-  .slide.active {
-    opacity: 1;
-  }
-  
-  .event-image {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-  
-  
-  .event-info {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-  }
-  
-  .slider-indicators {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 5px;
-  }
-  
-  .slider-indicators span {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: 1px solid var(--accent-color);
-    background: transparent;
-    display: inline-block;
-    transition: all 0.3s;
-  }
-  
-  .slider-indicators .active {
-    background: var(--accent-color);
-  }
-  
-  /* Bio Section */
-  .bio-section {
-    margin-top: 20px;
-    padding: 10px;
-  }
-  
-  .see-more {
-    color: var(--highlight-color);
-    cursor: pointer;
-    text-decoration: underline;
-  }
-  
-  /* Music Player */
-  .music-player {
-    margin-top: 20px;
-    padding: 10px;
-  }
-  
+background: var(--primary-color);
+color: var(--text-color);
+text-align: center;
+padding: var(--space-md) var(--space-sm);
+}
+
+.event-slider {
+width: 100%;
+overflow: hidden;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: var(--space-sm) 0;
+position: relative;
+}
+
+
+.slide {
+display: none;
+flex-direction: column;
+align-items: center;
+width: 100%;
+}
+
+.slide.active {
+display: flex;
+}
+
+.event-image {
+width: 100%;
+max-width: 900px; /* ← was 600px */
+height: auto;
+display: block;
+margin: 0 auto;
+border-radius: var(--space-xs);
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+cursor: pointer;
+transition: filter 0.3s ease;
+}
+
+@media (max-width: 768px) {
+.event-image {
+  max-width: 100%;
+}
+}
+
+
+.event-image:hover {
+filter: brightness(0.85);
+}
+
+.event-info {
+background: rgba(0, 0, 0, 0.5);
+padding: var(--space-sm);
+color: var(--accent-color);
+font-size: 0.95rem;
+}
+
+.event-hover-hint {
+font-size: 0.8rem;
+color: var(--highlight-color);
+text-transform: uppercase;
+letter-spacing: 1px;
+margin-top: var(--space-xs);
+}
+
+/* Dots for slider (if you use them later) */
+.slider-indicators {
+position: absolute;
+bottom: var(--space-xs);
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+gap: var(--space-xs);
+}
+
+.slider-indicators span {
+width: 10px;
+height: 10px;
+border-radius: 50%;
+border: 1px solid var(--accent-color);
+background: transparent;
+display: inline-block;
+transition: all 0.3s ease;
+cursor: pointer;
+}
+
+.slider-indicators .active {
+background: var(--accent-color);
+}
+
+/* 📖 Bio Section */
+.bio-section {
+background: rgba(255, 255, 255, 0.02); /* subtle background layer */
+border-radius: var(--space-xs);
+padding: var(--space-lg) var(--space-md);
+margin: var(--space-lg) auto;
+max-width: 850px;
+text-align: center;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+font-size: 1.1rem;
+line-height: 1.8;
+color: var(--text-color);
+}
+
+.bio-section p {
+margin-bottom: var(--space-sm);
+}
+
+/* 🏷️ Optional title styling */
+.bio-title {
+font-size: 1.4rem;
+font-weight: bold;
+margin-bottom: var(--space-sm);
+color: var(--accent-color);
+}
+
+/* By default, show desktop bio and hide mobile version */
+.full-bio-desktop {
+display: block;
+}
+
+.short-bio-mobile {
+display: none;
+}
+
+/* Show mobile version only on tablets and smaller */
+@media (max-width: 768px) {
+.full-bio-desktop {
+  display: none;
+}
+
+.short-bio-mobile {
+  display: block;
+}
+}
+
+
+/* 🔗 See More Link */
+.see-more {
+display: inline-block;
+margin-top: var(--space-xs);
+color: var(--highlight-color);
+cursor: pointer;
+font-weight: bold;
+text-decoration: underline;
+transition: color 0.3s ease;
+}
+
+.see-more:hover {
+color: var(--secondary-color);
+}
+
+
+
+/* 🎧 Music Player */
+.music-player {
+margin-top: var(--space-lg);
+padding: var(--space-sm);
+text-align: center;
+}
+
+/* 🎵 Floating Mixcloud Player */
+.floating-player {
+  position: fixed;
+  bottom: var(--space-sm);
+  right: var(--space-sm);
+  width: 100%;
+  max-width: 350px;
+  z-index: 999;
+  border-radius: var(--space-xs);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  background: black;
+  overflow: hidden;
+}
+
+.floating-player iframe {
+  width: 100%;
+  height: 60px; /* Match the iframe's height attribute */
+}
+
+
+
+/* 📱 Mobile & Tablet: Make it static and full width */
+@media (max-width: 768px) {
+.floating-player {
+  position: static;
+  width: 100%;
+  margin-top: var(--space-md);
+  box-shadow: none;
+  border-radius: 0;
+}
+}
