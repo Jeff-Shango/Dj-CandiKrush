@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import sanityClient from "../sanityClient"; 
 import "../styles/EventShowcase.css"; 
-import { FaInstagram, FaMixcloud } from "react-icons/fa"; // Social icons
+import { FaInstagram, FaMixcloud } from "react-icons/fa"; 
 
 const EventShowcase = () => {
   const [upcomingEvents, setUpcomingEvents] = useState([]);
