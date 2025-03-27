@@ -52,3 +52,56 @@ code {
   background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(6px);
 }
+
+/* 🛠️ Additional Utility Classes */
+.card {
+  background-color: var(--primary-color);
+  padding: var(--space-md);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.text-highlight {
+  color: var(--highlight-color);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--secondary-color);
+  color: var(--secondary-color);
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+
+/* events css stuff */
+.fade-in {
+  animation: fadeInUp 0.5s ease both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🌒 Global Layout Reset & Dark Background */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  box-sizing: border-box;
+}
+

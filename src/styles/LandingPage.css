@@ -6,22 +6,88 @@ padding: var(--space-md) var(--space-sm);
 }
 
 .event-slider {
-width: 100%;
-overflow: hidden;
-display: flex;
-justify-content: center;
-align-items: center;
-padding: var(--space-sm) 0;
-position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 600px;
+  padding: var(--space-md) 0;
+  text-align: center;
 }
+
+
+.event-slider-background {
+  width: 100%;
+  max-width: 1000px;         /* Keeps it from stretching too wide on desktops */
+  margin: 0 auto;            /* ✨ Centers it horizontally */
+  min-height: 60vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: background-image 0.6s ease-in-out;
+  border-radius: 20px;       /* ✅ KEEPING THIS CURVE */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* optional polish */
+}
+
+
+@media (max-width: 768px) {
+  .event-slider-background {
+    max-width: 95%;
+    min-height: 40vh;
+    border-radius: 12px;
+  }
+}
+
+
+
+.event-caption {
+  margin-top: var(--space-md);
+  text-align: center;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.event-caption h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.event-caption p {
+  font-size: 1.1rem;
+  color: var(--highlight-color);
+}
+
+@media (max-width: 768px) {
+  .event-slider-background {
+    min-height: 60vh;
+    padding: var(--space-md);
+  }
+
+  .event-overlay h2 {
+    font-size: 1.5rem;
+  }
+
+  .event-overlay p {
+    font-size: 1rem;
+  }
+}
+
+
+/* Optional hover effect */
+.event-slider-background:hover .event-overlay {
+  background: rgba(0, 0, 0, 0.7);
+}
+
 
 
 .slide {
-display: none;
-flex-direction: column;
-align-items: center;
-width: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 100%; /* Add this */
 }
+
 
 .slide.active {
 display: flex;

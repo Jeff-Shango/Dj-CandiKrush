@@ -34,21 +34,22 @@ const LandingPage = () => {
     <>
       <div className="landing-page">
         {/* Event Slider */}
-        <div className="event-slider">
-          {events.map((event, index) => (
-            <div
-              key={index}
-              className={`slide ${index === currentIndex ? "active" : ""}`}
-            >
-              <img
-                src={event.image}
-                alt={event.title}
-                className="event-image"
-                onClick={handleImageClick}
-              />
-            </div>
-          ))}
-        </div>
+        <div
+  className="event-slider-background"
+  style={{
+    backgroundImage: events.length
+      ? `url(${events[currentIndex]?.image})`
+      : "none",
+  }}
+  onClick={handleImageClick}
+></div>
+
+<div className="event-caption" onClick={handleImageClick}>
+  <h2>{events[currentIndex]?.title}</h2>
+  <p>Click to see all events</p>
+</div>
+
+
 
         {/* Bio Section - Full (Desktop) */}
         <div className="bio-section full-bio-desktop">

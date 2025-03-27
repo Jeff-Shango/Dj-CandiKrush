@@ -4,8 +4,9 @@
   --secondary-color: #ff6600;
   --accent-color: #ffffff;
   --text-color: #dddddd;
-  --highlight-color: #ffcc00;
+  --highlight-color: #a248ff;
   --dark-gray: #333;
+
 
   /* 📐 Spacing */
   --space-xs: 8px;
@@ -64,6 +65,12 @@
 .App {
   text-align: center;
   font-family: var(--font-main);
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--font-main);
+
 }
 
 .App-logo {
