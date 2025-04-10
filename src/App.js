@@ -8,6 +8,7 @@ import Header from "./pages/Header";
 import Footer from "./Footer";
 import "./styles/App.css";
 import NotFound from "./pages/NotFound";
+import Admin from "./pages/Admin";
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/events" element={<EventShowcase />} />
         <Route path="/music" element={<MusicPlayer />} />
-        <Route path="*" element={<NotFound />} /> {/* Catch-all for invalid routes */}
+        <Route path="*" element={<NotFound />} /> 
+        <Route path="/admin" element={<Admin />} /> 
       </Routes>
       <Footer />
     </Router>
