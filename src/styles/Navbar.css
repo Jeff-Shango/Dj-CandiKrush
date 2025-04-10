@@ -1,125 +1,144 @@
-/* 🏠 Navbar Styling */
+/* 🎛 Navbar Base */
 .navbar {
   width: 100%;
-  padding: 16px;
-  position: relative; /* ← Start as relative (not fixed) */
+  background-color: #000;
+  padding: 1rem 1.5rem;
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 50;
-  background: black;
-  box-shadow: none;
+  z-index: 1000;
   transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* 🌠 When user scrolls, it becomes fixed with a subtle overlay */
+/* 🌫 Scroll Effect */
 .navbar.scrolled {
-  position: fixed;
   background: rgba(0, 0, 0, 0.85);
-  box-shadow: 0px 4px 10px rgba(255, 0, 127, 0.5);
-  backdrop-filter: blur(6px); /* optional: nice touch */
+  box-shadow: 0 4px 10px rgba(255, 0, 127, 0.5);
+  backdrop-filter: blur(6px);
 }
 
-  
-  
-  /* 🔹 Navbar Container */
-  .navbar-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* 🧱 Layout */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 20rem ;
+  position: relative;
+}
+
+/* 🖋 Logo */
+.logo-and-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+}
+
+.logo-image {
+  height: 36px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  display: none;
+}
+
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+.navbar-logo:hover {
+  color: var(--secondary-color);
+  text-shadow: 0 0 6px var(--secondary-color);
+}
+
+/* ☰ Hamburger */
+.menu-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--text-color);
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+}
+
+/* 🔗 Nav Links - Desktop Default */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+  text-shadow: 0 0 4px var(--primary-color);
+}
+
+/* 📱 Mobile Layout */
+@media (max-width: 768px) {
+  .logo-image {
+    display: block;
   }
-  
-  /* 🏆 Navbar Logo */
-  .navbar-logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    text-decoration: none;
-    color: var(--primary-color);
-    transition: 0.3s ease-in-out;
-  }
-  
-  .navbar-logo:hover {
-    color: var(--secondary-color);
-    text-shadow: 0px 0px 8px var(--secondary-color);
-  }
-  
-  /* 🔗 Navigation Links */
-  .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-  }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-size: 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: 0.3s ease-in-out;
-    position: relative;
-  }
-  
-  /* 🚀 Hover Effect: Underline Glow */
-  .nav-links a::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -3px;
-    width: 0;
-    height: 2px;
-    background: var(--primary-color);
-    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
-  }
-  
-  .nav-links a:hover::after {
-    width: 100%;
-    left: 0;
-  }
-  
-  /* 🌟 Neon Glow Hover */
-  .nav-links a:hover {
-    color: var(--primary-color);
-    text-shadow: 0px 0px 5px var(--primary-color);
-  }
-  
-  /* 🔽 Mobile Menu Button */
-  .menu-btn {
+  .logo-text {
     display: none;
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    color: var(--text-color);
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
+  }
+
+  .menu-btn {
+    display: block;
+    position: relative;
+    z-index: 1001;
   }
   
-  .menu-btn:hover {
-    transform: scale(1.1);
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #111;
+    flex-direction: column;
+    display: none;
+    padding: 1rem;
+    gap: 1rem;
+    z-index: 1000;
   }
   
-  /* 📱 Mobile View */
-  @media (max-width: 768px) {
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      background: var(--dark-gray);
-      padding: 20px;
-      box-shadow: 0px 4px 10px rgba(255, 0, 127, 0.5);
-      transition: all 0.3s ease-in-out;
-    }
-  
-    .mobile-open {
-      display: flex;
-    }
-  
-    .menu-btn {
-      display: block;
-    }
+  .nav-links.active {
+    display: flex;
   }
   
+  .nav-links li {
+    text-align: right;
+  }
+  
+}

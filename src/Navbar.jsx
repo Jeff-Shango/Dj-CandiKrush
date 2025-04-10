@@ -1,36 +1,50 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import "./styles/Navbar.css";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import './styles/Navbar.css';
+import logoImage from './assets/photos/CandiKrushLogo.PNG'; // update path as needed
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 50);
     };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
-        <Link to="/" className="navbar-logo">DJ CANDIKRUSH "CANDACE"</Link>
+        <div className="logo-and-toggle">
+          <Link to="/" className="navbar-logo">
+            {/* 👇 Show full text on desktop */}
+            <span className="logo-text">DJ CANDIKRUSH "CANDACE"</span>
 
-        <ul className="nav-links">
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/events">Events</Link></li>
-          <li><Link to="/music">Music</Link></li>
+            {/* 👇 Show image logo on mobile */}
+            <img
+              src={logoImage}
+              alt="DJ Candikrush Logo"
+              className="logo-image"
+            />
+          </Link>
+
+          <button
+            className="menu-btn"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle Navigation"
+          >
+            ☰
+          </button>
+        </div>
+
+        <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#bio">Bio</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
-
-        {/* Hamburger Menu for Mobile */}
-        <button className="menu-btn">☰</button>
       </div>
     </nav>
   );

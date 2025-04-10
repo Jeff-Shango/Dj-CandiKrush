@@ -242,6 +242,7 @@
 @media (max-width: 480px) {
   /* mobile-xs */
   body {
+    padding-top: 80px;
     font-size: 1rem;
   }
 }

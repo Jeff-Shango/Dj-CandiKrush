@@ -50,6 +50,42 @@
     color: #ccc;
     line-height: 1.8;
   }
+
+  .logo-text {
+    display: block;
+  }
+  
+  .logo-image {
+    display: none;
+    height: 40px;
+  }
+
+  .logo-and-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 1rem;
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  
+  /* 👇 On small screens: hide text, show image */
+  @media (max-width: 768px) {
+    .logo-text {
+      display: none;
+    }
+  
+    .logo-image {
+      display: inline-block;
+    }
+  }
+  
   
   @media (max-width: 600px) {
     .about-heading::before {
