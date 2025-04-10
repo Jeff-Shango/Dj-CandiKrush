@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import sanityClient from "../sanityClient";
-import emailjs from "emailjs-com";
+// import emailjs from "emailjs-com";
 import { useNavigate } from "react-router-dom";
 import "../styles/LandingPage.css";
 
