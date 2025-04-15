@@ -25,6 +25,12 @@
   --navbar-height: 80px;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;}
 
 /* 🔧 Utility Classes */
 .container {
