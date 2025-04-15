@@ -1,6 +1,7 @@
 :root {
   /* 🎨 Colors */
-  --primary-color: #1a1a1a;
+  --primary-color: url("../assets/photos/cityBckground.gif");
+  /* --primary-color: #1a1a1a; */
   --secondary-color: #ff6600;
   --accent-color: #ffffff;
   --text-color: #dddddd;
@@ -23,6 +24,7 @@
   --container-max-width: 1200px;
   --navbar-height: 80px;
 }
+
 
 /* 🔧 Utility Classes */
 .container {
@@ -244,6 +246,7 @@
   body {
     padding-top: 80px;
     font-size: 1rem;
+    background: url("../assets/photos/cityBckground.gif");
   }
 }
 
