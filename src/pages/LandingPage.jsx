@@ -40,7 +40,7 @@ const LandingPage = () => {
     backgroundImage: events.length
       ? `url(${events[currentIndex]?.image})`
       : "none",
-  }}
+    }}
   onClick={handleImageClick}
 ></div>
 
@@ -54,6 +54,16 @@ const LandingPage = () => {
   </button>
 </div>
 
+    {/* Floating Music Player */}
+    <div className="floating-player">
+    <iframe
+  title="MixCloud"
+  width="100%"
+  height="60"
+  src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2FDjCandikrush%2F"
+  frameBorder="0"
+  allow="autoplay"
+  ></iframe>
 
 
 
@@ -116,16 +126,6 @@ const LandingPage = () => {
         )}
       </div>
 
-      {/* Floating Music Player */}
-      <div className="floating-player">
-      <iframe
-  title="MixCloud"
-  width="100%"
-  height="60"
-  src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2FDjCandikrush%2F"
-  frameBorder="0"
-  allow="autoplay"
-></iframe>
 
       </div>
     </>
