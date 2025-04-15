@@ -65,6 +65,7 @@ const LandingPage = () => {
   allow="autoplay"
   ></iframe>
 
+    </div>
 
 
 
@@ -127,7 +128,6 @@ const LandingPage = () => {
       </div>
 
 
-      </div>
     </>
   );
 };
