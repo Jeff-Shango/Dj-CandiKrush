@@ -46,8 +46,15 @@ const LandingPage = () => {
 
 <div className="event-caption" onClick={handleImageClick}>
   <h2>{events[currentIndex]?.title}</h2>
-  <p>Click to see all events</p>
 </div>
+
+<div className="see-events-btn-container">
+  <button className="see-events-btn" onClick={handleImageClick}>
+    🎶 View Full Lineup
+  </button>
+</div>
+
+
 
 
 
