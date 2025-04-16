@@ -16,11 +16,11 @@ function App() {
       <Header /> {/* Navbar is inside Header */}
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="https://djcandikrush.netlify.app/about" element={<About />} />
-        <Route path="https://djcandikrush.netlify.app/events" element={<EventShowcase />} />
-        <Route path="https://djcandikrush.netlify.app/music" element={<MusicPlayer />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/events" element={<EventShowcase />} />
+        <Route path="/music" element={<MusicPlayer />} />
         <Route path="*" element={<NotFound />} /> 
-        <Route path="https://djcandikrush.netlify.app/admin" element={<Admin />} /> 
+        <Route path="/admin" element={<Admin />} /> 
       </Routes>
       <Footer />
 
