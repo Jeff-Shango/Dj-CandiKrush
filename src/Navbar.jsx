@@ -41,9 +41,9 @@ const Navbar = () => {
         </div>
 
         <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
-          <li><a href="#events">Events</a></li>
-          <li><a href="#bio">Bio</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="https://djcandikrush.netlify.app/events">Events</a></li>
+          <li><a href="https://djcandikrush.netlify.app/bio">Bio</a></li>
+          <li><a href="https://djcandikrush.netlify.app/contact">Contact</a></li>
         </ul>
       </div>
     </nav>
