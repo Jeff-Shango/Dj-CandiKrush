@@ -15,7 +15,7 @@ function App() {
     <Router>
       <Header /> {/* Navbar is inside Header */}
       <Routes>
-        <Route path="https://djcandikrush.netlify.app/" element={<LandingPage />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="https://djcandikrush.netlify.app/about" element={<About />} />
         <Route path="https://djcandikrush.netlify.app/events" element={<EventShowcase />} />
         <Route path="https://djcandikrush.netlify.app/music" element={<MusicPlayer />} />
