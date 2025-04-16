@@ -34,15 +34,15 @@ const LandingPage = () => {
     <>
       <div className="landing-page">
         {/* Event Slider */}
-        <div
-  className="event-slider-background"
-  style={{
-    backgroundImage: events.length
-      ? `url(${events[currentIndex]?.image})`
-      : "none",
-    }}
-  onClick={handleImageClick}
-></div>
+        {events.length > 0 && (
+  <img
+    className="event-image"
+    src={events[currentIndex]?.image}
+    alt={events[currentIndex]?.title}
+    onClick={handleImageClick}
+  />
+)}
+
 
 <div className="event-caption" onClick={handleImageClick}>
   <h2>{events[currentIndex]?.title}</h2>
@@ -54,18 +54,19 @@ const LandingPage = () => {
   </button>
 </div>
 
-    {/* Floating Music Player */}
-    <div className="floating-player">
-    <iframe
-  title="MixCloud"
-  width="100%"
-  height="60"
-  src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2FDjCandikrush%2F"
-  frameBorder="0"
-  allow="autoplay"
+{/* Floating Music Player */}
+<div className="floating-player">
+  <iframe
+    title="MixCloud"
+    
+    width="100%"
+    height="60"
+    src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2FDjCandikrush%2F"
+    frameBorder="0"
+    allow="autoplay"
   ></iframe>
+</div>
 
-    </div>
 
 
 
@@ -110,7 +111,7 @@ const LandingPage = () => {
               >
                 ✕
               </button>
-              <h2>Full Bio</h2>
+              <h2>Bio</h2>
               <p>
                 DJ Candikrush began her career at the tender age of 12 being
                 inspired and trained by legends like Grand Wizard Theodore and
