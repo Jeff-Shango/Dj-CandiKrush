@@ -8,14 +8,23 @@ const LandingPage = () => {
   const [events, setEvents] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showFullBio, setShowFullBio] = useState(false);
+  const [bio, setBio] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Fetch events
     sanityClient
       .fetch(`*[_type == "event"]{ title, date, "image": image.asset->url }`)
       .then((data) => setEvents(data))
       .catch((error) => console.error("Sanity Fetch Error:", error));
+  
+    // Fetch bio
+    sanityClient
+      .fetch(`*[_type == "bio"][0]`)
+      .then((data) => setBio(data))
+      .catch((error) => console.error("Bio Fetch Error:", error));
   }, []);
+  
 
   useEffect(() => {
     if (events.length > 1) {
@@ -71,61 +80,43 @@ const LandingPage = () => {
 
 
         {/* Bio Section - Full (Desktop) */}
-        <div className="bio-section full-bio-desktop">
-          <p className="bio-title">DJ CANDIKRUSH</p>
-          <p>
-            DJ Candikrush began her career at the tender age of 12, being
-            inspired and trained by legends like Grand Wizard Theodore and DJ
-            Jimmyphingaz of Washington DC and New York.
-          </p>
-          <p>
-            Candace has been an established DJ for decades — opening for Kurtis
-            Blow, touring with the No Profanity Tours, DJing for Adidas, and
-            appearing on radio stations both locally and internationally.
-          </p>
-          <p>
-            She is seasoned in many genres of the music industry — from House
-            music to Hip-Hop, Underground Jazz, Fusion Rock, and Pop.
-          </p>
-        </div>
+        {bio && (
+          <div className="bio-section full-bio-desktop">
+            <p className="bio-title">DJ CANDIKRUSH</p>
+            <p>{bio.short}</p>
+            <p>{bio.full}</p>
+          </div>
+        )}
+
 
         {/* Bio Section - Compact with "See more…" (Mobile/Tablet) */}
-        <div className="bio-section short-bio-mobile">
-          <p className="bio-title">DJ CANDIKRUSH</p>
-          <p>
-            DJ Candikrush began her career at the tender age of 12...
-            <span className="see-more" onClick={() => setShowFullBio(true)}>
-              {" "}
-              See more...
-            </span>
-          </p>
-        </div>
+        {bio && (
+          <div className="bio-section short-bio-mobile">
+            <p className="bio-title">DJ CANDIKRUSH</p>
+            <p>
+              {bio.short}
+              <span className="see-more" onClick={() => setShowFullBio(true)}>
+                {" "}
+                See more...
+              </span>
+            </p>
+          </div>
+        )}
+
 
         {/* Fullscreen Modal */}
-        {showFullBio && (
+        {showFullBio && bio && (
           <div className="full-bio-overlay">
             <div className="full-bio-content">
-              <button
-                className="close-btn"
-                onClick={() => setShowFullBio(false)}
-              >
+              <button className="close-btn" onClick={() => setShowFullBio(false)}>
                 ✕
               </button>
               <h2>Bio</h2>
-              <p>
-                DJ Candikrush began her career at the tender age of 12 being
-                inspired and trained by legends like Grand Wizard Theodore and
-                DJ Jimmyphingaz of Washington DC and New York. Candace has been
-                an Established DJ for decades. She was the opening DJ for Kurtis
-                Blow, part of the No Profanity Tours alongside pioneers of
-                Hip-Hop, DJed for Adidas, and appeared on radio stations both
-                local and abroad. She is seasoned in many genres of the music
-                industry — House, Hip-Hop, Underground Jazz, Fusion Rock, and
-                Pop — covering all musical tastes.
-              </p>
+              <p>{bio.full}</p>
             </div>
           </div>
         )}
+
       </div>
 
 
