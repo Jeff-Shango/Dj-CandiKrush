@@ -9,6 +9,8 @@ import Footer from "./Footer";
 import "./styles/App.css";
 import NotFound from "./pages/NotFound";
 import Admin from "./pages/Admin";
+import Bio from "./pages/Bio";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path="/music" element={<MusicPlayer />} />
         <Route path="*" element={<NotFound />} /> 
         <Route path="/admin" element={<Admin />} /> 
+        <Route path="/bio" element={<Bio />} /> 
+        <Route path="/contact" element={<Contact />} /> 
       </Routes>
       <Footer />
 
