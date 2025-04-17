@@ -1,5 +1,5 @@
 .landing-page {
-/* background: var(--primary-color); */
+background: transparent;
 color: var(--text-color);
 text-align: center;
 padding: var(--space-md) var(--space-sm);
@@ -319,7 +319,7 @@ color: var(--secondary-color);
 }
 
 .full-bio-content {
-  /* background: var(--primary-color); */
+  background: transparent;
   color: var(--text-color);
   padding: var(--space-lg);
   border-radius: 16px;

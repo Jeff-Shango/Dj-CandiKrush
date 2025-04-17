@@ -15,19 +15,7 @@ import Contact from "./pages/Contact";
 function App() {
   return (
     <Router>
-      {/* 🌃 Background Video Layer */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="background-video"
-      >
-        <source src="/assets/videos/cityBckground.MP4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-
-      {/* 🧱 Site Structure */}
+            {/* 🧱 Site Structure */}
       <Header />
       <Routes>
         <Route path="/" element={<LandingPage />} />

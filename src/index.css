@@ -122,13 +122,15 @@ html, body, #root {
   padding: 0;
   width: 100vw;
   min-height: 100vh;
-  background-color: var(--primary-bg-color);
-  /* background-image: var(--primary-color); */
-  color: var(--text-color);
+  background-color: #000;
+  background-image: url("./assets/photos/cityBckground.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow-x: hidden;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
 }
+
 
 html, body {
   /* background-image: var(--primary-color); */
@@ -149,3 +151,10 @@ html, body {
     background-position: center center;
   }
 }
+
+@media (max-width: 768px) {
+  html, body {
+    background-image: url("/assets/photos/cityFallback.jpg"); /* or use same gif */
+  }
+}
+
