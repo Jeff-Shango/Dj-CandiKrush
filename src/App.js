@@ -15,7 +15,20 @@ import Contact from "./pages/Contact";
 function App() {
   return (
     <Router>
-      <Header /> {/* Navbar is inside Header */}
+      {/* 🌃 Background Video Layer */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="background-video"
+      >
+        <source src="/assets/videos/cityBckground.MP4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* 🧱 Site Structure */}
+      <Header />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/about" element={<About />} />
@@ -27,9 +40,9 @@ function App() {
         <Route path="/contact" element={<Contact />} /> 
       </Routes>
       <Footer />
-
     </Router>
   );
 }
+
 
 export default App;

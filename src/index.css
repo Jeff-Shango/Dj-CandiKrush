@@ -16,6 +16,18 @@ body::before {
   background-color: var(--primary-bg-color);
 }
 
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
+  background-color: #000; /* for load fallback */
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -111,7 +123,7 @@ html, body, #root {
   width: 100vw;
   min-height: 100vh;
   background-color: var(--primary-bg-color);
-  background-image: var(--primary-color);
+  /* background-image: var(--primary-color); */
   color: var(--text-color);
   box-sizing: border-box;
   display: flex;
@@ -119,7 +131,7 @@ html, body, #root {
 }
 
 html, body {
-  background-image: var(--primary-color);
+  /* background-image: var(--primary-color); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -131,7 +143,7 @@ html, body {
 @media screen and (orientation: landscape) {
   html, body {
     background-color: #000;
-    background-image: var(--primary-color);
+    /* background-image: var(--primary-color); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
