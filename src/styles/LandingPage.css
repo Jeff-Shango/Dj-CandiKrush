@@ -212,11 +212,11 @@ color: var(--accent-color);
 
 /* By default, show desktop bio and hide mobile version */
 .full-bio-desktop {
-display: block;
+display: none;
 }
 
 .short-bio-mobile {
-display: none;
+display: block;
 position: relative;
 }
 
@@ -232,29 +232,38 @@ position: relative;
 }
 
 .short-bio-mobile p {
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* or 2 if you want it tighter */
-  line-clamp: 3;
-  -webkit-box-orient: vertical;
+  text-align: left;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  max-height: 10em; /* allows more breathing room */
   overflow: hidden;
-  text-overflow: ellipsis;
-  max-height: 5.4em; /* fallback for non-webkit */
+  position: relative;
+  margin-bottom: 1rem;
 }
+
+.short-bio-mobile .see-more {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+}
+
+
 
 /* Show mobile version only on tablets and smaller */
 @media (max-width: 768px) {
 .full-bio-desktop {
-  display: none;
+  display: block;
 }
 
 .short-bio-mobile {
-  display: block;
+  display: none;
 }
 }
 
 
 /* 🔗 See More Link */
-.see-more {
+
+/* .see-more {
 display: inline-block;
 margin-top: var(--space-xs);
 color: var(--highlight-color);
@@ -262,7 +271,23 @@ cursor: pointer;
 font-weight: bold;
 text-decoration: underline;
 transition: color 0.3s ease;
+} */
+
+.see-more {
+  background: none;
+  color: var(--accent-color);
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 0.5rem;
 }
+
+.full-bio-desktop .see-more {
+  display: inline-block;
+}
+
 
 .see-more:hover {
 color: var(--secondary-color);
@@ -306,6 +331,13 @@ color: var(--secondary-color);
   position: relative;
   text-align: left;
 }
+
+.full-bio-content p {
+  margin-bottom: 1rem;
+  line-height: 1.8;
+  text-align: left;
+}
+
 
 .close-btn {
   position: absolute;

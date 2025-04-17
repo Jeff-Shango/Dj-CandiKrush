@@ -84,9 +84,12 @@ const LandingPage = () => {
           <div className="bio-section full-bio-desktop">
             <p className="bio-title">DJ CANDIKRUSH</p>
             <p>{bio.short}</p>
-            <p>{bio.full}</p>
+            <button className="see-more" onClick={() => setShowFullBio(true)}>
+              Click to see more
+            </button>
           </div>
         )}
+
 
 
         {/* Bio Section - Compact with "See more…" (Mobile/Tablet) */}
@@ -111,11 +114,14 @@ const LandingPage = () => {
               <button className="close-btn" onClick={() => setShowFullBio(false)}>
                 ✕
               </button>
-              <h2>Bio</h2>
-              <p>{bio.full}</p>
+              <h2>{bio.heading}</h2>
+              {bio.full.split('\n').map((para, i) => (
+                <p key={i}>{para.trim()}</p>
+              ))}
             </div>
-          </div>
-        )}
+  </div>
+)}
+
 
       </div>
 
