@@ -154,7 +154,7 @@ html, body {
 
 @media (max-width: 768px) {
   html, body {
-    background-image: url("/assets/photos/cityFallback.jpg"); /* or use same gif */
+    background-image: url("./assets/photos/cityFallback.png"); /* or use same gif */
   }
 }
 
