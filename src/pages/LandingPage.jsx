@@ -119,8 +119,11 @@ const LandingPage = () => {
 
       </div>
 
+      {events.length === 0 && <p style={{ color: 'white' }}>No events loaded.</p>}
+{!bio && <p style={{ color: 'white' }}>No bio loaded.</p>}
 
     </>
+    
   );
 };
 
