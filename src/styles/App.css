@@ -133,9 +133,13 @@ html, body {
 .contact-section {
   max-width: 400px;
   margin: var(--space-md) auto;
-  padding: 0 var(--space-sm);
+  padding: var(--space-md);
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.6); /* translucent black */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
+
 
 .contact-section form {
   display: flex;
@@ -220,9 +224,12 @@ html, body {
   width: 100%;
   padding: var(--space-sm);
   padding-top: 1.5rem;
-  background-color: var(--primary-color);
-  border: 1px solid #444;
-  color: var(--accent-color);
+  background-color: rgba(0, 0, 0, 0.8); /* updated */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* subtler border */
+  color: #fff;
+  /* background-color: var(--primary-color); */
+  /* border: 1px solid #444; */
+  /* color: var(--accent-color); */
   font-size: 1rem;
   border-radius: 4px;
 }
@@ -257,6 +264,11 @@ html, body {
     font-size: 1rem;
     background: url("../assets/photos/cityBckground.gif");
   }
+  
+  .contact-section {
+    width: 90%;
+    padding: var(--space-lg) var(--space-sm);
+  }
 }
 
 @media (max-width: 768px) {
@@ -274,3 +286,4 @@ html, body {
 @media (min-width: 1441px) {
   /* widescreen */
 }
+
