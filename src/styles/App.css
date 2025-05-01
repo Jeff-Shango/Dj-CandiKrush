@@ -29,11 +29,15 @@ html, body {
   overflow-x: hidden;
   margin: 0;
   padding:0;
-  overflow-x: hidden;
 }
 
 * {
   box-sizing: border-box;}
+
+  section {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-xl);
+  }
 
 /* 🔧 Utility Classes */
 .container {
@@ -147,7 +151,7 @@ html, body {
   gap: var(--space-sm);
 }
 
-.contact-section input,
+/* .contact-section input,
 .contact-section textarea {
   width: 100%;
   padding: var(--space-sm);
@@ -155,7 +159,20 @@ html, body {
   background-color: var(--primary-color);
   color: var(--accent-color);
   font-size: 1rem;
+} */
+
+.contact-section input,
+.contact-section textarea {
+  width: 100%;
+  padding: var(--space-sm);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5) inset;
 }
+
 
 .contact-section button {
   background: linear-gradient(135deg, var(--secondary-color), var(--highlight-color));

@@ -42,6 +42,7 @@ const LandingPage = () => {
   return (
     <>
       <div className="landing-page">
+    <section className="event-section">
         {/* Event Slider */}
         {events.length > 0 && (
   <img
@@ -62,7 +63,9 @@ const LandingPage = () => {
     🎶 View Full Lineup
   </button>
 </div>
+</section>
 
+<section className="musicPlayer-section">
 {/* Floating Music Player */}
 <div className="floating-player">
   <iframe
@@ -75,10 +78,10 @@ const LandingPage = () => {
     allow="autoplay"
   ></iframe>
 </div>
+</section>
 
 
-
-
+<section className="bio-section">
         {/* Bio Section - Full (Desktop) */}
         {bio && (
           <div className="bio-section full-bio-desktop">
@@ -121,6 +124,7 @@ const LandingPage = () => {
             </div>
   </div>
 )}
+</section>
 
 
       </div>
